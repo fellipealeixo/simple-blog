@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>App de Blog</title>
+  </head>
+  <body>
+    <h1>Aplicação de Blog</h1>
+    <h3>Remoção de Post</h3>
+    <form method="post">
+      {% csrf_token %}
+      <p>
+        Tem certeza que deseja remover a postagem:
+        "{{ object }}"?
+      </p>
+      <input type="submit" value="Confirmar">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>App de Blog</title>
+  </head>
+  <body>
+    <h1>Aplicação de Blog</h1>
+    <h3>Posts Cadastrados</h3>
+    {% if post_list %}
+      <ul>
+      {% for post in post_list %}
+        <li>
+          <a href="{% url 'main:detalhes' post.id %}">{{ post.texto }}</a> |
+          <a href="{% url 'main:atualiza' post.id %}">
+            (atualiza)</a> |
+          <a href="{% url 'main:remove' post.id %}">
+            (remove)</a>
+        </li>
+      {% endfor %}
+      </ul>
+    {% else %}
+      <p>Nenhum post cadastrado ainda.</p>
+    {% endif %}
+    <hr/>
+    <a href="{% url 'main:adiciona' %}">(+) Novo Post</a>
+  </body>
+</html>
